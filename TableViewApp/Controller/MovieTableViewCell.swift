@@ -8,21 +8,16 @@
 import UIKit
 
 class MovieTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var moviewImageView: UIImageView!
+    
+    @IBOutlet weak var movieImageView: UIImageView!
     @IBOutlet weak var movieLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    func configure(with movie: Movie) {
+        movieImageView.image = UIImage(named: movie.imageName)
+        movieLabel.text = movie.movieTitle
+        yearLabel.text = "\(movie.releaseYear)"
+        genreLabel.text = movie.movieGenre
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
